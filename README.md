@@ -60,3 +60,10 @@ i repay amount jest obliczane na 50% paymentu admin id dalej null
 Admin przegląda wszystkie paymenty ze statusem Cancelled i zwraca pieniądze wprowadzając swoje id oraz nowy payment ze statusem Returned(2)
 
 jeżeli anulujemy rezerwację mniej niż 3 dni przed terminem to zwracamy 25%
+
+
+
+!!!
+price do rezerwacji
+
+uprościć Payment czyli czy wpłata czy zwrot i czy rezerwacja cancelled czy aktywna możliwość przedłużania rezerwacji
