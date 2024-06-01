@@ -65,6 +65,42 @@ INSERT INTO `Admins` (`admin_id`, `firstname`, `lastname`, `email`, `phone_numbe
 UNLOCK TABLES;
 
 --
+-- Temporary view structure for view `AllCancelledReservations`
+--
+
+DROP TABLE IF EXISTS `AllCancelledReservations`;
+/*!50001 DROP VIEW IF EXISTS `AllCancelledReservations`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `AllCancelledReservations` AS SELECT 
+ 1 AS `reservation_id`,
+ 1 AS `client_id`,
+ 1 AS `date_from`,
+ 1 AS `date_to`,
+ 1 AS `status`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `AllFlats`
+--
+
+DROP TABLE IF EXISTS `AllFlats`;
+/*!50001 DROP VIEW IF EXISTS `AllFlats`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `AllFlats` AS SELECT 
+ 1 AS `flat_id`,
+ 1 AS `floor`,
+ 1 AS `flat_number`,
+ 1 AS `size`,
+ 1 AS `rooms_count`,
+ 1 AS `is_bathroom`,
+ 1 AS `is_kitchen`,
+ 1 AS `price_for_day`,
+ 1 AS `description`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `Clients`
 --
 
@@ -81,7 +117,7 @@ CREATE TABLE `Clients` (
   PRIMARY KEY (`client_id`),
   UNIQUE KEY `Clients_ak_1` (`email`),
   UNIQUE KEY `Clients__email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,9 +126,25 @@ CREATE TABLE `Clients` (
 
 LOCK TABLES `Clients` WRITE;
 /*!40000 ALTER TABLE `Clients` DISABLE KEYS */;
-INSERT INTO `Clients` (`client_id`, `firstname`, `lastname`, `email`, `phone_number`, `password`) VALUES (1,'Jan','Kowalski','jan.kowalski@example.com','9876543210','haslo3'),(2,'Anna','Nowak','anna.nowak@example.com','9876543211','haslo4'),(3,'Alicja','Kowalska','alicja.kowalska@example.com','9876543212','haslo5'),(4,'Robert','Nowak','robert.nowak@example.com','9876543213','haslo6'),(5,'Piotr','Wojciechowski','piotr.wojciechowski@example.com','9876543214','haslo7'),(6,'Maria','Kaczmarek','maria.kaczmarek@example.com','9876543215','haslo8'),(7,'Tomasz','Zieliński','tomasz.zielinski@example.com','9876543216','haslo9'),(8,'Katarzyna','Wójcik','katarzyna.wojcik@example.com','9876543217','haslo10'),(9,'Marek','Lewandowski','marek.lewandowski@example.com','9876543218','haslo11'),(10,'Magdalena','Szymańska','magdalena.szymanska@example.com','9876543219','haslo12'),(11,'Paweł','Woźniak','pawel.wozniak@example.com','9876543220','haslo13'),(12,'Joanna','Dąbrowska','joanna.dabrowska@example.com','9876543221','haslo14'),(13,'Andrzej','Król','andrzej.krol@example.com','9876543222','haslo15'),(14,'Monika','Majewska','monika.majewska@example.com','9876543223','haslo16'),(15,'Krzysztof','Olszewski','krzysztof.olszewski@example.com','9876543224','haslo17'),(16,'Zofia','Stępień','zofia.stepien@example.com','9876543225','haslo18'),(17,'Wojciech','Jaworski','wojciech.jaworski@example.com','9876543226','haslo19'),(18,'Ewa','Malinowska','ewa.malinowska@example.com','9876543227','haslo20'),(19,'Adam','Pawlak','adam.pawlak@example.com','9876543228','haslo21'),(20,'Agnieszka','Kubiak','agnieszka.kubiak@example.com','9876543229','haslo22');
+INSERT INTO `Clients` (`client_id`, `firstname`, `lastname`, `email`, `phone_number`, `password`) VALUES (1,'Jan','Kowalski','jan.kowalski@example.com','9876543210','haslo3'),(2,'Anna','Nowak','anna.nowak@example.com','9876543211','haslo4'),(3,'Alicja','Kowalska','alicja.kowalska@example.com','9876543212','haslo5'),(4,'Robert','Nowak','robert.nowak@example.com','9876543213','haslo6'),(5,'Piotr','Wojciechowski','piotr.wojciechowski@example.com','9876543214','haslo7'),(6,'Maria','Kaczmarek','maria.kaczmarek@example.com','9876543215','haslo8'),(7,'Tomasz','Zieliński','tomasz.zielinski@example.com','9876543216','haslo9'),(8,'Katarzyna','Wójcik','katarzyna.wojcik@example.com','9876543217','haslo10'),(9,'Marek','Lewandowski','marek.lewandowski@example.com','9876543218','haslo11'),(10,'Magdalena','Szymańska','magdalena.szymanska@example.com','9876543219','haslo12'),(11,'Paweł','Woźniak','pawel.wozniak@example.com','9876543220','haslo13'),(12,'Joanna','Dąbrowska','joanna.dabrowska@example.com','9876543221','haslo14'),(13,'Andrzej','Król','andrzej.krol@example.com','9876543222','haslo15'),(14,'Monika','Majewska','monika.majewska@example.com','9876543223','haslo16'),(15,'Krzysztof','Olszewski','krzysztof.olszewski@example.com','9876543224','haslo17'),(16,'Zofia','Stępień','zofia.stepien@example.com','9876543225','haslo18'),(17,'Wojciech','Jaworski','wojciech.jaworski@example.com','9876543226','haslo19'),(18,'Ewa','Malinowska','ewa.malinowska@example.com','9876543227','haslo20'),(19,'Adam','Pawlak','adam.pawlak@example.com','9876543228','haslo21'),(20,'Agnieszka','Kubiak','agnieszka.kubiak@example.com','9876543229','haslo22'),(21,'Staszek','Barycki','barycki@email.com','123456789','haslo1234'),(22,'client','client','client@email.com','123456789','haslo1234'),(23,'client2','client2','client2@email.com','123456789','haslo1234');
 /*!40000 ALTER TABLE `Clients` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `CurrentlyOccupiedRooms`
+--
+
+DROP TABLE IF EXISTS `CurrentlyOccupiedRooms`;
+/*!50001 DROP VIEW IF EXISTS `CurrentlyOccupiedRooms`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `CurrentlyOccupiedRooms` AS SELECT 
+ 1 AS `flat_id`,
+ 1 AS `flat_number`,
+ 1 AS `client_id`,
+ 1 AS `date_from`,
+ 1 AS `date_to`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `Flats`
@@ -144,7 +196,7 @@ CREATE TABLE `Payments` (
   KEY `Payments_Admins` (`admin_id`),
   CONSTRAINT `Payments_Admins` FOREIGN KEY (`admin_id`) REFERENCES `Admins` (`admin_id`),
   CONSTRAINT `Payments_Reservations` FOREIGN KEY (`reservation_id`) REFERENCES `Reservations` (`reservation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +205,7 @@ CREATE TABLE `Payments` (
 
 LOCK TABLES `Payments` WRITE;
 /*!40000 ALTER TABLE `Payments` DISABLE KEYS */;
-INSERT INTO `Payments` (`payment_id`, `reservation_id`, `amount`, `date`, `admin_id`) VALUES (1,1,400.00,'2023-04-01 00:00:00',NULL),(2,2,540.00,'2023-04-15 00:00:00',NULL),(3,3,220.00,'2023-05-10 00:00:00',NULL),(4,4,160.00,'2023-03-01 00:00:00',NULL),(5,4,160.00,'2023-03-03 00:00:00',NULL),(6,5,420.00,'2023-03-05 00:00:00',NULL),(7,6,350.00,'2023-03-15 00:00:00',NULL),(8,6,175.00,'2023-03-18 00:00:00',NULL),(9,7,570.00,'2023-02-05 00:00:00',NULL),(10,8,150.00,'2023-02-12 00:00:00',NULL),(11,9,645.00,'2023-02-20 00:00:00',NULL),(12,7,-570.00,'2023-02-07 00:00:00',1),(13,8,-150.00,'2023-02-14 00:00:00',2),(14,10,200.00,'2023-02-25 00:00:00',NULL),(15,11,410.00,'2023-03-02 00:00:00',NULL),(16,12,330.00,'2023-03-10 00:00:00',NULL),(17,13,400.00,'2023-03-12 00:00:00',NULL),(18,14,360.00,'2023-03-18 00:00:00',NULL),(19,15,440.00,'2023-03-20 00:00:00',NULL),(20,16,320.00,'2023-03-22 00:00:00',NULL),(21,17,420.00,'2023-03-25 00:00:00',NULL),(22,18,350.00,'2023-03-28 00:00:00',NULL),(23,19,380.00,'2023-03-30 00:00:00',NULL),(24,20,300.00,'2023-04-02 00:00:00',NULL),(25,2,-540.00,'2024-05-27 20:02:54',1),(26,21,1000.00,'2024-05-30 00:00:00',NULL),(27,22,1000.00,'2024-05-30 11:30:20',NULL),(28,23,1080.00,'2024-05-30 11:30:20',NULL),(29,24,1540.00,'2024-05-30 11:30:20',NULL),(30,25,800.00,'2024-05-30 11:30:20',NULL),(31,26,1260.00,'2024-05-30 11:30:20',NULL),(32,27,2800.00,'2024-05-30 11:30:20',NULL),(33,28,2850.00,'2024-05-30 11:30:20',NULL),(34,29,1050.00,'2024-05-30 11:30:20',NULL),(35,30,1505.00,'2024-05-30 11:30:20',NULL),(36,31,1400.00,'2024-05-30 11:30:20',NULL),(37,32,1435.00,'2024-05-30 11:30:20',NULL),(38,33,1155.00,'2024-05-30 11:30:20',NULL),(39,34,1400.00,'2024-05-30 11:30:20',NULL),(40,35,1260.00,'2024-05-30 11:30:20',NULL),(41,30,-1505.00,'2024-05-30 11:38:58',1);
+INSERT INTO `Payments` (`payment_id`, `reservation_id`, `amount`, `date`, `admin_id`) VALUES (1,1,400.00,'2023-04-01 00:00:00',NULL),(2,2,540.00,'2023-04-15 00:00:00',NULL),(3,3,220.00,'2023-05-10 00:00:00',NULL),(4,4,160.00,'2023-03-01 00:00:00',NULL),(5,4,160.00,'2023-03-03 00:00:00',NULL),(6,5,420.00,'2023-03-05 00:00:00',NULL),(7,6,350.00,'2023-03-15 00:00:00',NULL),(8,6,175.00,'2023-03-18 00:00:00',NULL),(9,7,570.00,'2023-02-05 00:00:00',NULL),(10,8,150.00,'2023-02-12 00:00:00',NULL),(11,9,645.00,'2023-02-20 00:00:00',NULL),(12,7,-570.00,'2023-02-07 00:00:00',1),(13,8,-150.00,'2023-02-14 00:00:00',2),(14,10,200.00,'2023-02-25 00:00:00',NULL),(15,11,410.00,'2023-03-02 00:00:00',NULL),(16,12,330.00,'2023-03-10 00:00:00',NULL),(17,13,400.00,'2023-03-12 00:00:00',NULL),(18,14,360.00,'2023-03-18 00:00:00',NULL),(19,15,440.00,'2023-03-20 00:00:00',NULL),(20,16,320.00,'2023-03-22 00:00:00',NULL),(21,17,420.00,'2023-03-25 00:00:00',NULL),(22,18,350.00,'2023-03-28 00:00:00',NULL),(23,19,380.00,'2023-03-30 00:00:00',NULL),(24,20,300.00,'2023-04-02 00:00:00',NULL),(25,2,-540.00,'2024-05-27 20:02:54',1),(26,21,1000.00,'2024-05-30 00:00:00',NULL),(27,22,1000.00,'2024-05-30 11:30:20',NULL),(28,23,1080.00,'2024-05-30 11:30:20',NULL),(29,24,1540.00,'2024-05-30 11:30:20',NULL),(30,25,800.00,'2024-05-30 11:30:20',NULL),(31,26,1260.00,'2024-05-30 11:30:20',NULL),(32,27,2800.00,'2024-05-30 11:30:20',NULL),(33,28,2850.00,'2024-05-30 11:30:20',NULL),(34,29,1050.00,'2024-05-30 11:30:20',NULL),(35,30,1505.00,'2024-05-30 11:30:20',NULL),(36,31,1400.00,'2024-05-30 11:30:20',NULL),(37,32,1435.00,'2024-05-30 11:30:20',NULL),(38,33,1155.00,'2024-05-30 11:30:20',NULL),(39,34,1400.00,'2024-05-30 11:30:20',NULL),(40,35,1260.00,'2024-05-30 11:30:20',NULL),(41,30,-1505.00,'2024-05-30 11:38:58',1),(42,9,430.00,'2024-05-30 17:26:31',NULL),(44,20,-300.00,'2024-05-31 17:53:17',2),(45,8,300.00,'2024-06-01 11:34:16',NULL),(46,8,300.00,'2024-06-01 11:44:02',NULL),(47,1,200.00,'2024-06-01 11:51:17',NULL),(48,1,200.00,'2024-06-01 11:59:16',NULL),(49,36,990.00,'2024-06-01 12:05:04',NULL);
 /*!40000 ALTER TABLE `Payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +230,7 @@ CREATE TABLE `Reservations` (
   KEY `Reservations_Flats` (`flat_id`),
   CONSTRAINT `Reservations_Clients` FOREIGN KEY (`client_id`) REFERENCES `Clients` (`client_id`),
   CONSTRAINT `Reservations_Flats` FOREIGN KEY (`flat_id`) REFERENCES `Flats` (`flat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +239,7 @@ CREATE TABLE `Reservations` (
 
 LOCK TABLES `Reservations` WRITE;
 /*!40000 ALTER TABLE `Reservations` DISABLE KEYS */;
-INSERT INTO `Reservations` (`reservation_id`, `client_id`, `flat_id`, `status`, `people_count`, `date_from`, `date_to`, `price`) VALUES (1,1,1,1,4,'2024-06-01','2024-06-03',400.00),(2,2,2,0,3,'2024-06-02','2024-06-05',540.00),(3,3,3,1,5,'2024-06-03','2024-06-04',220.00),(4,4,4,1,2,'2024-06-04','2024-06-06',320.00),(5,5,5,1,6,'2024-06-05','2024-06-07',420.00),(6,6,6,0,4,'2024-06-06','2024-06-09',525.00),(7,7,7,1,3,'2024-06-07','2024-06-10',570.00),(8,8,8,1,1,'2024-06-08','2024-06-09',150.00),(9,9,9,1,6,'2024-06-09','2024-06-12',645.00),(10,10,10,1,5,'2024-06-10','2024-06-11',200.00),(11,11,11,0,4,'2024-06-11','2024-06-13',410.00),(12,12,12,1,2,'2024-06-12','2024-06-14',330.00),(13,13,1,1,4,'2024-06-13','2024-06-15',400.00),(14,14,2,1,3,'2024-06-14','2024-06-16',360.00),(15,15,3,0,5,'2024-06-15','2024-06-17',440.00),(16,16,4,1,2,'2024-06-16','2024-06-18',320.00),(17,17,5,1,6,'2024-06-17','2024-06-19',420.00),(18,18,6,1,4,'2024-06-18','2024-06-20',350.00),(19,19,7,1,3,'2024-06-19','2024-06-21',380.00),(20,20,8,0,1,'2024-06-20','2024-06-22',300.00),(21,2,1,1,6,'2024-06-23','2024-06-28',1000.00),(22,1,1,1,3,'2024-03-28','2024-04-02',1000.00),(23,2,2,1,2,'2024-03-30','2024-04-05',1080.00),(24,3,3,1,5,'2024-03-25','2024-04-01',1540.00),(25,4,4,1,2,'2024-03-29','2024-04-03',800.00),(26,5,5,1,4,'2024-03-27','2024-04-02',1260.00),(27,6,6,1,4,'2024-04-15','2024-05-01',2800.00),(28,7,7,1,3,'2024-04-20','2024-05-05',2850.00),(29,8,8,1,1,'2024-04-05','2024-04-12',1050.00),(30,9,9,0,6,'2024-04-08','2024-04-15',1505.00),(31,10,10,1,5,'2024-04-10','2024-04-17',1400.00),(32,11,11,1,4,'2024-04-12','2024-04-19',1435.00),(33,12,12,1,2,'2024-04-14','2024-04-21',1155.00),(34,1,1,1,3,'2024-04-16','2024-04-23',1400.00),(35,2,2,1,2,'2024-04-18','2024-04-25',1260.00);
+INSERT INTO `Reservations` (`reservation_id`, `client_id`, `flat_id`, `status`, `people_count`, `date_from`, `date_to`, `price`) VALUES (1,1,1,1,4,'2024-06-01','2024-06-05',800.00),(2,2,2,0,3,'2024-06-02','2024-06-05',540.00),(3,3,3,1,5,'2024-06-03','2024-06-04',220.00),(4,4,4,1,2,'2024-06-04','2024-06-06',320.00),(5,5,5,1,6,'2024-06-05','2024-06-07',420.00),(6,6,6,0,4,'2024-06-06','2024-06-09',525.00),(7,7,7,1,3,'2024-06-07','2024-06-10',570.00),(8,8,8,1,1,'2024-06-09','2024-06-12',450.00),(9,9,9,1,6,'2024-06-09','2024-06-13',860.00),(10,10,10,1,5,'2024-06-10','2024-06-11',200.00),(11,11,11,0,4,'2024-06-11','2024-06-13',410.00),(12,12,12,1,2,'2024-06-12','2024-06-14',330.00),(13,13,1,1,4,'2024-06-13','2024-06-15',400.00),(14,14,2,1,3,'2024-06-14','2024-06-16',360.00),(15,15,3,0,5,'2024-06-15','2024-06-17',440.00),(16,16,4,0,2,'2024-06-16','2024-06-18',320.00),(17,17,5,1,6,'2024-06-17','2024-06-19',420.00),(18,18,6,1,4,'2024-06-18','2024-06-20',350.00),(19,19,7,1,3,'2024-06-19','2024-06-21',380.00),(20,20,8,0,1,'2024-06-20','2024-06-22',300.00),(21,2,1,1,6,'2024-06-23','2024-06-28',1000.00),(22,1,1,1,3,'2024-03-28','2024-04-02',1000.00),(23,2,2,1,2,'2024-03-30','2024-04-05',1080.00),(24,3,3,1,5,'2024-03-25','2024-04-01',1540.00),(25,4,4,1,2,'2024-03-29','2024-04-03',800.00),(26,5,5,1,4,'2024-03-27','2024-04-02',1260.00),(27,6,6,1,4,'2024-04-15','2024-05-01',2800.00),(28,7,7,1,3,'2024-04-20','2024-05-05',2850.00),(29,8,8,1,1,'2024-04-05','2024-04-12',1050.00),(30,9,9,0,6,'2024-04-08','2024-04-15',1505.00),(31,10,10,1,5,'2024-04-10','2024-04-17',1400.00),(32,11,11,1,4,'2024-04-12','2024-04-19',1435.00),(33,12,12,1,2,'2024-04-14','2024-04-21',1155.00),(34,1,1,1,3,'2024-04-16','2024-04-23',1400.00),(35,2,2,1,2,'2024-04-18','2024-04-25',1260.00),(36,7,12,1,2,'2024-06-01','2024-06-07',990.00);
 /*!40000 ALTER TABLE `Reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -288,7 +340,6 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `ReservationsToRefund` AS SELECT 
  1 AS `reservation_id`,
  1 AS `client_id`,
- 1 AS `flat_id`,
  1 AS `date_from`,
  1 AS `date_to`,
  1 AS `to_return`,
@@ -392,18 +443,43 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`%` PROCEDURE `CancelFutureReservation`(IN reservationID INT)
+CREATE DEFINER=`root`@`%` PROCEDURE `CancelFutureReservation`(IN clientID int, IN reservationID int)
 BEGIN
     DECLARE startDate DATE;
+
     SELECT date_from INTO startDate FROM Reservations WHERE reservation_id = reservationID;
-
+    CALL CheckReservationOwner(clientID,reservationID);
     IF startDate > CURDATE() THEN
-
         UPDATE Reservations SET status = 0 WHERE reservation_id = reservationID;
         SELECT 'Reservation cancelled successfully.' AS message;
     ELSE
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Cannot cancel past or current reservations.';
     END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CheckReservationOwner` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `CheckReservationOwner`(IN in_clientId INT, IN in_reservationId INT)
+BEGIN
+    DECLARE actualClientId INT;
+    SELECT client_id INTO actualClientId FROM Reservations WHERE reservation_id = in_reservationId;
+    IF actualClientId != in_clientId THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'This reservation does not belong to the specified client.';
+    END IF;
+
+    SELECT 'Reservation ownership verified successfully.' AS message;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -426,13 +502,42 @@ BEGIN
 
     SELECT f.flat_id, f.flat_number, f.size, f.is_kitchen,f.description,f.price_for_day
     FROM Flats f
-    WHERE f.size >= numPeople AND f.is_kitchen = withKitchen
+    WHERE f.size >= numPeople AND (
+          (withKitchen = 1 AND f.is_kitchen = 1)
+          OR
+          (withKitchen = 0)
+      )
         AND f.flat_id NOT IN (
             SELECT r.flat_id
             FROM ActiveReservations r
             WHERE (r.date_from < endDate AND r.date_to > startDate)
         );
 END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetClientId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `GetClientId`(IN in_email varchar(320))
+BEGIN
+    DECLARE clientID INT;
+    SELECT client_id INTO clientID FROM Clients WHERE email=in_email;
+    IF clientID is null THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Client not found';
+    ELSE
+        SELECT clientID AS client_id;
+    END IF;
+end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -452,6 +557,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `GetRoomsToClean`(IN target_date date)
 BEGIN
     SELECT
         f.flat_number,
+        r.flat_id,
         r.date_to,
         r.reservation_id
     FROM
@@ -463,6 +569,25 @@ BEGIN
         r.date_to = target_date
         AND r.status = 1; 
 END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetRoomsToCleanToday` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `GetRoomsToCleanToday`()
+BEGIN
+    CALL GetRoomsToClean(curdate());
+end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -651,6 +776,28 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ShowCancelledReservations` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `ShowCancelledReservations`(IN input_year INT, IN input_month INT)
+BEGIN
+    SELECT * FROM AllCancelledReservations
+    WHERE
+        YEAR(date_from) = input_year AND
+        MONTH(date_from) = input_month;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ShowPaymentHistory` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -689,6 +836,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ShowReturnedPaymentsByAdmin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `ShowReturnedPaymentsByAdmin`(IN adminId INT)
+BEGIN
+    SELECT p.reservation_id,p.amount,p.amount,p.date FROM Payments p WHERE p.admin_id=adminId ORDER BY p.date;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UpdateReservationDate` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -699,30 +865,75 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`%` PROCEDURE `UpdateReservationDate`(IN reservationId int, IN newDateFrom date, IN newDateTo date)
+CREATE DEFINER=`root`@`%` PROCEDURE `UpdateReservationDate`(IN reservationId int, IN clientId int, IN newDateFrom date,
+                                                       IN newDateTo date)
 BEGIN
     DECLARE flatId INT;
     DECLARE roomPricePerDay DECIMAL(10,2);
     DECLARE newNights INT;
     DECLARE oldDateFrom DATE;
     DECLARE oldDateTo DATE;
-
+    IF (SELECT status FROM Reservations WHERE reservation_id=reservationId)=0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'You cannot update cancelled reservation';
+    end if;
+    CALL CheckReservationOwner(clientId,reservationId);
     SELECT flat_id, date_from, date_to INTO flatId, oldDateFrom, oldDateTo
     FROM Reservations
     WHERE reservation_id = reservationId;
-    SELECT size, price_for_day INTO roomPricePerDay FROM Flats WHERE flat_id = flatId;
+    SELECT  price_for_day INTO roomPricePerDay FROM Flats WHERE flat_id = flatId;
     IF EXISTS (
         SELECT 1 FROM Reservations
-        WHERE flat_id = flatId AND NOT reservation_id = reservationId AND
-        (date_to > newDateFrom AND date_from < newDateTo) AND status=1
+        WHERE flat_id = flatId AND  (date_to > newDateFrom AND date_from < newDateTo) AND status=1 AND NOT reservation_id=reservationId
     ) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The room is not available for the selected new dates.';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The room is not available for the selected dates.';
     END IF;
     SET newNights = DATEDIFF(newDateTo, newDateFrom);
     UPDATE Reservations
     SET date_from = newDateFrom, date_to = newDateTo, price = roomPricePerDay * newNights
     WHERE reservation_id = reservationId;
 END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateReservationDateFrom` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `UpdateReservationDateFrom`(IN reservationId int, IN clientId INT, IN newDateFrom date)
+BEGIN
+    DECLARE dateTo DATE;
+    SELECT date_to INTO dateTo FROM Reservations WHERE reservation_id=reservationId;
+    CALL UpdateReservationDate(reservationId,clientId, newDateFrom,DateTo);
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateReservationDateTo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `UpdateReservationDateTo`(IN reservationId int, IN clientId INT, IN newDateTo date)
+BEGIN
+    DECLARE dateFrom DATE;
+    SELECT date_from INTO dateFrom FROM Reservations WHERE reservation_id=reservationId;
+    CALL UpdateReservationDate(reservationId,clientId, dateFrom,newDateTo);
+end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -742,7 +953,61 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `ActiveReservations` AS select `Reservations`.`reservation_id` AS `reservation_id`,`Reservations`.`client_id` AS `client_id`,`Reservations`.`flat_id` AS `flat_id`,`Reservations`.`status` AS `status`,`Reservations`.`people_count` AS `people_count`,`Reservations`.`date_from` AS `date_from`,`Reservations`.`date_to` AS `date_to`,`Reservations`.`price` AS `price` from `Reservations` where ((`Reservations`.`status` = 1) and ((`Reservations`.`date_from` >= curdate()) or (`Reservations`.`date_to` >= curdate()))) */;
+/*!50001 VIEW `ActiveReservations` AS select `Reservations`.`reservation_id` AS `reservation_id`,`Reservations`.`client_id` AS `client_id`,`Reservations`.`flat_id` AS `flat_id`,`Reservations`.`status` AS `status`,`Reservations`.`people_count` AS `people_count`,`Reservations`.`date_from` AS `date_from`,`Reservations`.`date_to` AS `date_to`,`Reservations`.`price` AS `price` from `Reservations` where (((`Reservations`.`status` = 1) and (`Reservations`.`date_from` >= curdate())) or (`Reservations`.`date_to` >= curdate())) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `AllCancelledReservations`
+--
+
+/*!50001 DROP VIEW IF EXISTS `AllCancelledReservations`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `AllCancelledReservations` AS select `Reservations`.`reservation_id` AS `reservation_id`,`Reservations`.`client_id` AS `client_id`,`Reservations`.`date_from` AS `date_from`,`Reservations`.`date_to` AS `date_to`,`Reservations`.`status` AS `status` from `Reservations` where (`Reservations`.`status` = 0) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `AllFlats`
+--
+
+/*!50001 DROP VIEW IF EXISTS `AllFlats`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `AllFlats` AS select `Flats`.`flat_id` AS `flat_id`,`Flats`.`floor` AS `floor`,`Flats`.`flat_number` AS `flat_number`,`Flats`.`size` AS `size`,`Flats`.`rooms_count` AS `rooms_count`,`Flats`.`is_bathroom` AS `is_bathroom`,`Flats`.`is_kitchen` AS `is_kitchen`,`Flats`.`price_for_day` AS `price_for_day`,`Flats`.`description` AS `description` from `Flats` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `CurrentlyOccupiedRooms`
+--
+
+/*!50001 DROP VIEW IF EXISTS `CurrentlyOccupiedRooms`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `CurrentlyOccupiedRooms` AS select `f`.`flat_id` AS `flat_id`,`f`.`flat_number` AS `flat_number`,`r`.`client_id` AS `client_id`,`r`.`date_from` AS `date_from`,`r`.`date_to` AS `date_to` from (`Flats` `f` join `Reservations` `r` on((`f`.`flat_id` = `r`.`flat_id`))) where ((`r`.`date_from` <= curdate()) and (`r`.`date_to` >= curdate()) and (`r`.`status` = 1)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -760,7 +1025,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `ReservationsToRefund` AS select `r`.`reservation_id` AS `reservation_id`,`r`.`client_id` AS `client_id`,`r`.`flat_id` AS `flat_id`,`r`.`date_from` AS `date_from`,`r`.`date_to` AS `date_to`,sum(`p`.`amount`) AS `to_return`,`r`.`status` AS `status` from (`Reservations` `r` join `Payments` `p` on((`r`.`reservation_id` = `p`.`reservation_id`))) where (`r`.`status` = 0) group by `r`.`reservation_id`,`r`.`client_id`,`r`.`flat_id`,`r`.`status` having (`to_return` <> 0) */;
+/*!50001 VIEW `ReservationsToRefund` AS select `r`.`reservation_id` AS `reservation_id`,`r`.`client_id` AS `client_id`,`r`.`date_from` AS `date_from`,`r`.`date_to` AS `date_to`,(case when ((`r`.`status` = 0) and (coalesce(sum(`p`.`amount`),0) <> 0)) then coalesce(sum(`p`.`amount`),0) when (`r`.`status` = 1) then coalesce((sum(`p`.`amount`) - `r`.`price`),0) else 0 end) AS `to_return`,`r`.`status` AS `status` from (`Reservations` `r` left join `Payments` `p` on((`r`.`reservation_id` = `p`.`reservation_id`))) group by `r`.`reservation_id`,`r`.`client_id`,`r`.`date_from`,`r`.`date_to`,`r`.`status` having (`to_return` > 0) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -774,4 +1039,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-30 18:43:12
+-- Dump completed on 2024-06-01 12:27:25

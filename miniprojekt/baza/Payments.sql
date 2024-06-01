@@ -39,3 +39,10 @@ INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id)
 INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (39, 34, 1400.00, '2024-05-30 11:30:20', null);
 INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (40, 35, 1260.00, '2024-05-30 11:30:20', null);
 INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (41, 30, -1505.00, '2024-05-30 11:38:58', 1);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (42, 9, 430.00, '2024-05-30 17:26:31', null);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (44, 20, -300.00, '2024-05-31 17:53:17', 2);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (45, 8, 300.00, '2024-06-01 11:34:16', null);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (46, 8, 300.00, '2024-06-01 11:44:02', null);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (47, 1, 200.00, '2024-06-01 11:51:17', null);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (48, 1, 200.00, '2024-06-01 11:59:16', null);
+INSERT INTO MiniDb.Payments (payment_id, reservation_id, amount, date, admin_id) VALUES (49, 36, 990.00, '2024-06-01 12:05:04', null);

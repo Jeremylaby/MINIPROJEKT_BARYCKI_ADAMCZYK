@@ -18,3 +18,6 @@ INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number,
 INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number, password) VALUES (18, 'Ewa', 'Malinowska', 'ewa.malinowska@example.com', '9876543227', 'haslo20');
 INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number, password) VALUES (19, 'Adam', 'Pawlak', 'adam.pawlak@example.com', '9876543228', 'haslo21');
 INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number, password) VALUES (20, 'Agnieszka', 'Kubiak', 'agnieszka.kubiak@example.com', '9876543229', 'haslo22');
+INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number, password) VALUES (21, 'Staszek', 'Barycki', 'barycki@email.com', '123456789', 'haslo1234');
+INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number, password) VALUES (22, 'client', 'client', 'client@email.com', '123456789', 'haslo1234');
+INSERT INTO MiniDb.Clients (client_id, firstname, lastname, email, phone_number, password) VALUES (23, 'client2', 'client2', 'client2@email.com', '123456789', 'haslo1234');
