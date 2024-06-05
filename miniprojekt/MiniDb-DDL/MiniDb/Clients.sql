@@ -7,6 +7,8 @@ create table Clients
     email        varchar(320) not null,
     phone_number varchar(15)  not null,
     password     varchar(100) not null,
+    constraint Clients__email
+        unique (email),
     constraint Clients_ak_1
         unique (email)
 );

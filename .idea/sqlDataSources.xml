@@ -4,12 +4,12 @@
     <option name="dataSources">
       <list>
         <State>
-          <option name="id" value="66fa6651-df3e-46e6-b622-e505ae84c69a" />
+          <option name="id" value="117fb65f-224a-4ec4-9d55-f3ca36daeac4" />
           <option name="name" value="MiniDb@127.0.0.1 (DDL)" />
           <option name="dbmsName" value="MYSQL" />
           <option name="urls">
             <array>
-              <option value="file://$PROJECT_DIR$/miniprojekt/baza" />
+              <option value="file://$PROJECT_DIR$/miniprojekt/MiniDb-DDL" />
             </array>
           </option>
           <option name="outLayout" value="File per object by schema.groovy" />

@@ -8,6 +8,6 @@ select `MiniDb`.`Reservations`.`reservation_id` AS `reservation_id`,
        `MiniDb`.`Reservations`.`date_to`        AS `date_to`,
        `MiniDb`.`Reservations`.`price`          AS `price`
 from `MiniDb`.`Reservations`
-where ((`MiniDb`.`Reservations`.`status` = 1) and
-       ((`MiniDb`.`Reservations`.`date_from` >= curdate()) or (`MiniDb`.`Reservations`.`date_to` >= curdate())));
+where (((`MiniDb`.`Reservations`.`status` = 1) and (`MiniDb`.`Reservations`.`date_from` >= curdate())) or
+       (`MiniDb`.`Reservations`.`date_to` >= curdate()));
 

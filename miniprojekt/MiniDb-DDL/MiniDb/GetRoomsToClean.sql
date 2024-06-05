@@ -3,6 +3,7 @@ create
 BEGIN
     SELECT
         f.flat_number,
+        r.flat_id,
         r.date_to,
         r.reservation_id
     FROM
