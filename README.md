@@ -47,7 +47,7 @@ https://github.com/Jeremylaby/MINIPROJEKT_BARYCKI_ADAMCZYK
     - Wyświetlanie zwróconych rezerwacji po id Admina
     - Wyświetlanie rezerwacji zwróconych przez system
 ## Schemat bazy danych
-![image](Miniproject-schema2.png)
+![image](Miniproject-schemat.png)
 
 ## Struktura Tabel
 
